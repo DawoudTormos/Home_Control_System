@@ -1,5 +1,5 @@
 // file only for testing.
-
+/*
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -115,4 +115,4 @@ class AppRouter extends RouterDelegate<AppState>
   static AppRouter of(BuildContext context) {
     return Router.of(context).routerDelegate as AppRouter;
   }
-}
+}*/

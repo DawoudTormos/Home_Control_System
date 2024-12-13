@@ -51,15 +51,18 @@ import 'platforms_routing_helper.dart' if (dart.library.html) './web_routing.dar
 
 class AppRouter extends RouterDelegate<AppState>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppState> {
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   AppState _currentState = AppState('/');
 
   AppRouter() : navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
   AppState get currentConfiguration => _currentState;
 
   @override
+  // ignore: avoid_renaming_method_parameters
   Future<void> setNewRoutePath(AppState state) async {
     _currentState = state;
     notifyListeners();
@@ -70,14 +73,15 @@ class AppRouter extends RouterDelegate<AppState>
     return Navigator(
       key: navigatorKey,
       pages: [
-        MaterialPage(child: Home( gridItems: gridItems , gridItemsIndexes : gridItemsIndexes), key: ValueKey('HomePage')),
+        MaterialPage(child: Home( gridItems: gridItems , gridItemsIndexes : gridItemsIndexes), key: const ValueKey('HomePage')),
         if (_currentState.path == '/page2')
           MaterialPage(child: Home( gridItems: gridItems2 , gridItemsIndexes : gridItemsIndexes2), key: const ValueKey('DetailsPage')),
         if (_currentState.path == '/page3')
           MaterialPage(child: Home( gridItems: gridItems2 , gridItemsIndexes : gridItemsIndexes2), key: const ValueKey('DetailsPage')),
           if (!['/', '/page2', '/page3'].contains(_currentState.path))  
-          MaterialPage(child: NotFoundPage(), key: ValueKey('NotFoundPage')),
+          const MaterialPage(child: NotFoundPage(), key: ValueKey('NotFoundPage')),
       ],
+      // ignore: deprecated_member_use
       onPopPage: (route, result) {
         if (!route.didPop(result)) {
           return false;
@@ -100,12 +104,15 @@ class AppRouter extends RouterDelegate<AppState>
 class AppRouteInformationParser extends RouteInformationParser<AppState> {
   @override
   Future<AppState> parseRouteInformation(RouteInformation routeInformation) {
-    final uri = Uri.parse(routeInformation.location ?? '/');
+    // ignore: deprecated_member_use
+    final uri = Uri.parse(routeInformation.location /* ?? '/' //can't be null so commented it*/);
     return SynchronousFuture(AppState(uri.path));
   }
 
   @override
+  // ignore: avoid_renaming_method_parameters
   RouteInformation? restoreRouteInformation(AppState state) {
+    // ignore: deprecated_member_use
     return RouteInformation(location: state.path);
   }
 }

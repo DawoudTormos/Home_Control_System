@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '/pages/home.dart';
-import '/pages/page_not_found.dart';
 import 'router/app_router.dart' ;
 
 

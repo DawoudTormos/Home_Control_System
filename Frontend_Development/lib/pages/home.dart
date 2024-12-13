@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import "../widgets/Grid_of_Gridviews/main_grid.dart";
 
 class Home extends StatelessWidget {
-  List<String>? gridItemsIndexes;
-  Map<String, List<Map<String, dynamic>>>? gridItems;
+  final List<String>? gridItemsIndexes;
+  final Map<String, List<Map<String, dynamic>>>? gridItems;
 
-    Home({super.key , required this.gridItems  , required this.gridItemsIndexes });
+    const Home({super.key , required this.gridItems  , required this.gridItemsIndexes });
    
   
 

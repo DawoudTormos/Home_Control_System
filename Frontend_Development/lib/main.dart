@@ -1,31 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import "widgets/Grid_of_Gridviews/main_grid.dart";
+import '/pages/home.dart';
+import '/pages/page_not_found.dart';
+import 'router/app_router.dart' ;
+
+
 
 void main() {
+  configureWebURL();// to deal with web diffrenetly from other platforms regarding URLS
   runApp(MyApp());
 }
 
 
 
 
+
 class MyApp extends StatelessWidget {
-
- final Map<String, List<Map<String, dynamic>>> gridItems = {
-  "Kitchen": [
-    {"name": "Lamp 1", "color": Colors.red, "icon": Icons.lightbulb, "value": true},
-    {"name": "Spotlight 1", "color": Colors.orange, "icon": Icons.light, "value": 0.86},
-    {"name": "AC 2", "color": Colors.purple, "icon": Icons.ac_unit, "value": true},
-    {"name": "Door Lock", "color": Colors.teal, "icon": Icons.lock_outlined, "value": true},
-  ],
-  "Living Room": [
-    {"name": "Heater", "color": Colors.pink, "icon": Icons.air_rounded, "value": true},
-    {"name": "Lamp 2", "color": Colors.green, "icon": Icons.lightbulb, "value": true},
-    {"name": "Lamp 3", "color": Colors.blue, "icon": Icons.lightbulb, "value": true},
-  ],
-};
-
-
-   final List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];
+  final AppRouter _router = AppRouter();
+  final AppRouteInformationParser _routeInformationParser =
+      AppRouteInformationParser();
 
    MyApp({super.key});// used to keep the index of keys and to be retrived from the db
   
@@ -33,23 +26,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final double screenWidth = MediaQuery.of(context).size.width;
+    
 
-    return MaterialApp(
-      home: Scaffold(
-        body: 
-          SingleChildScrollView(
-            //physics: BouncingScrollPhysics(),
-            child: SizedBox(
-              width: screenWidth,
-              child: 
-                  MainGrid(gridItems: gridItems , gridItemsIndexes : gridItemsIndexes),
-                
-              ),
-            ),
-          
-        ),
-      )
-    ;
+     
+
+ return MaterialApp.router(
+      routerDelegate: _router,
+      routeInformationParser: _routeInformationParser,
+    );
+    
+
+
   }
 }

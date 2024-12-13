@@ -1,3 +1,4 @@
+import 'package:edittable_grid_flutter/router/app_router.dart';
 import 'package:flutter/material.dart';
 import "package:edittable_grid_flutter/widgets/gridview_/editable_grid.dart";
 
@@ -52,10 +53,21 @@ class _MainGridState extends State<MainGrid> {
                         //SizedBox(width: columnsCount * 500 - 330),
                     ElevatedButton(
                       onPressed: () {
+                     AppRouter.of(context).setNewRoutePath(AppState('/page2'));
+
+
+
+                      },
+                      
+                      child: Text("go next page"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
                         setState(() {
                           editMode = !editMode;
                         });
                       },
+                      
                       child: Text(editMode ? "Done Editing" : "Edit"),
                     ),
                     

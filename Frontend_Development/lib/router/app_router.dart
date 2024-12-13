@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '/pages/home.dart';
 import '../pages/page_not_found.dart';
 
-import 'platforms_routing_helper.dart' if (dart.library.html) './web_routing.dart' if (dart.library.io)  './other_routing.dart' ;
+import 'routingForURL/platforms_routing_helper.dart' if (dart.library.html) './routingForURL/web_routing.dart' if (dart.library.io)  './routingForURL/other_routing.dart' ;
 
 
 

@@ -70,7 +70,8 @@ class AppRouter extends RouterDelegate<AppState>
 
   @override
   Widget build(BuildContext context) {
-    return Navigator(
+    return Scaffold(
+          body:Navigator(
       key: navigatorKey,
       pages: [
         MaterialPage(child: Home( gridItems: gridItems , gridItemsIndexes : gridItemsIndexes), key: const ValueKey('HomePage')),
@@ -91,7 +92,7 @@ class AppRouter extends RouterDelegate<AppState>
         notifyListeners();
         return true;
       },
-    );
+    ));
   }
 
   static AppRouter of(BuildContext context) {

@@ -1,5 +1,8 @@
+import 'package:edittable_grid_flutter/main_andriod.dart';
+import 'package:edittable_grid_flutter/main_web.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'router/app_router.dart' ;
+import 'web_router/app_router.dart' ;
 
 
 
@@ -13,9 +16,7 @@ void main() {
 
 
 class MyApp extends StatelessWidget {
-  final AppRouter _router = AppRouter();
-  final AppRouteInformationParser _routeInformationParser =
-      AppRouteInformationParser();
+
 
    MyApp({super.key});// used to keep the index of keys and to be retrived from the db
   
@@ -25,12 +26,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
 
-     
+       if (kIsWeb) {
+        print("I am on web");
+     return MainWeb();
+  } else {
+   return const MainAndriod();
+  }
 
- return MaterialApp.router(
-      routerDelegate: _router,
-      routeInformationParser: _routeInformationParser,
-    );
+
     
 
 

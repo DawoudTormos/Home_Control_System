@@ -1,53 +1,117 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '/pages/home.dart';
+import '../pages/dashboard.dart';
 import '../pages/page_not_found.dart';
 
-import 'routingForURL/platforms_routing_helper.dart' if (dart.library.html) './routingForURL/web_routing.dart' if (dart.library.io)  './routingForURL/other_routing.dart' ;
+import 'routingForURL/platforms_routing_helper.dart'
+    if (dart.library.html) './routingForURL/web_routing.dart'
+    if (dart.library.io) './routingForURL/other_routing.dart';
 
-
-
-
- void configureWebURL(){// to deal with web diffrenetly from other platforms regarding URLS
+void configureWebURL() {
+  // to deal with web diffrenetly from other platforms regarding URLS
   configureWebURL_();
- }
+}
 
-
-
- final Map<String, List<Map<String, dynamic>>> gridItems = {
+final Map<String, List<Map<String, dynamic>>> gridItems = {
   "Kitchen": [
-    {"name": "Lamp 1", "color": Colors.red, "icon": Icons.lightbulb, "value": true},
-    {"name": "Spotlight 1", "color": Colors.orange, "icon": Icons.light, "value": 0.86},
-    {"name": "AC 2", "color": Colors.purple, "icon": Icons.ac_unit, "value": true},
-    {"name": "Door Lock", "color": Colors.teal, "icon": Icons.lock_outlined, "value": true},
+    {
+      "name": "Lamp 1",
+      "color": Colors.red,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
+    {
+      "name": "Spotlight 1",
+      "color": Colors.orange,
+      "icon": Icons.light,
+      "value": 0.86
+    },
+    {
+      "name": "AC 2",
+      "color": Colors.purple,
+      "icon": Icons.ac_unit,
+      "value": true
+    },
+    {
+      "name": "Door Lock",
+      "color": Colors.teal,
+      "icon": Icons.lock_outlined,
+      "value": true
+    },
   ],
   "Living Room": [
-    {"name": "Heater", "color": Colors.pink, "icon": Icons.air_rounded, "value": true},
-    {"name": "Lamp 2", "color": Colors.green, "icon": Icons.lightbulb, "value": true},
-    {"name": "Lamp 3", "color": Colors.blue, "icon": Icons.lightbulb, "value": true},
+    {
+      "name": "Heater",
+      "color": Colors.pink,
+      "icon": Icons.air_rounded,
+      "value": true
+    },
+    {
+      "name": "Lamp 2",
+      "color": Colors.green,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
+    {
+      "name": "Lamp 3",
+      "color": Colors.blue,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
   ],
 };
 
- final Map<String, List<Map<String, dynamic>>> gridItems2 = {
+final Map<String, List<Map<String, dynamic>>> gridItems2 = {
   "Kitchen2": [
-    {"name": "Lamp 1", "color": Colors.red, "icon": Icons.lightbulb, "value": true},
-    {"name": "Spotlight 1", "color": Colors.orange, "icon": Icons.light, "value": 0.86},
-    {"name": "AC 2", "color": Colors.purple, "icon": Icons.ac_unit, "value": true},
-    {"name": "Door Lock", "color": Colors.teal, "icon": Icons.lock_outlined, "value": true},
+    {
+      "name": "Lamp 1",
+      "color": Colors.red,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
+    {
+      "name": "Spotlight 1",
+      "color": Colors.orange,
+      "icon": Icons.light,
+      "value": 0.86
+    },
+    {
+      "name": "AC 2",
+      "color": Colors.purple,
+      "icon": Icons.ac_unit,
+      "value": true
+    },
+    {
+      "name": "Door Lock",
+      "color": Colors.teal,
+      "icon": Icons.lock_outlined,
+      "value": true
+    },
   ],
   "Living Room2": [
-    {"name": "Heater", "color": Colors.pink, "icon": Icons.air_rounded, "value": true},
-    {"name": "Lamp 2", "color": Colors.green, "icon": Icons.lightbulb, "value": true},
-    {"name": "Lamp 3", "color": Colors.blue, "icon": Icons.lightbulb, "value": true},
+    {
+      "name": "Heater",
+      "color": Colors.pink,
+      "icon": Icons.air_rounded,
+      "value": true
+    },
+    {
+      "name": "Lamp 2",
+      "color": Colors.green,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
+    {
+      "name": "Lamp 3",
+      "color": Colors.blue,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
   ],
 };
 
-
-   final List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];
-   final List<String> gridItemsIndexes2 = ["Kitchen2" , "Living Room2"];
-
-
+final List<String> gridItemsIndexes = ["Kitchen", "Living Room"];
+final List<String> gridItemsIndexes2 = ["Kitchen2", "Living Room2"];
 
 class AppRouter extends RouterDelegate<AppState>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppState> {
@@ -65,22 +129,24 @@ class AppRouter extends RouterDelegate<AppState>
   // ignore: avoid_renaming_method_parameters
   Future<void> setNewRoutePath(AppState state) async {
     _currentState = state;
+    print(_currentState.toString());
     notifyListeners();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body:Navigator(
+        body: Navigator(
       key: navigatorKey,
       pages: [
-        MaterialPage(child: Home( gridItems: gridItems , gridItemsIndexes : gridItemsIndexes), key: const ValueKey('HomePage')),
-        if (_currentState.path == '/page2')
-          MaterialPage(child: Home( gridItems: gridItems2 , gridItemsIndexes : gridItemsIndexes2), key: const ValueKey('DetailsPage')),
-        if (_currentState.path == '/page3')
-          MaterialPage(child: Home( gridItems: gridItems2 , gridItemsIndexes : gridItemsIndexes2), key: const ValueKey('DetailsPage')),
-          if (!['/', '/page2', '/page3'].contains(_currentState.path))  
-          const MaterialPage(child: NotFoundPage(), key: ValueKey('NotFoundPage')),
+        MaterialPage(
+            child:
+                Dashboard(gridItems: gridItems, gridItemsIndexes: gridItemsIndexes),
+            key: const ValueKey('HomePage')),
+        
+        if (!['/', '/page2', '/page3'].contains(_currentState.path))
+          const MaterialPage(
+              child: NotFoundPage(), key: ValueKey('NotFoundPage')),
       ],
       // ignore: deprecated_member_use
       onPopPage: (route, result) {
@@ -100,13 +166,12 @@ class AppRouter extends RouterDelegate<AppState>
   }
 }
 
-
-
 class AppRouteInformationParser extends RouteInformationParser<AppState> {
   @override
   Future<AppState> parseRouteInformation(RouteInformation routeInformation) {
     // ignore: deprecated_member_use
-    final uri = Uri.parse(routeInformation.location /* ?? '/' //can't be null so commented it*/);
+    final uri = Uri.parse(
+        routeInformation.location /* ?? '/' //can't be null so commented it*/);
     return SynchronousFuture(AppState(uri.path));
   }
 
@@ -118,11 +183,8 @@ class AppRouteInformationParser extends RouteInformationParser<AppState> {
   }
 }
 
-
 class AppState {
   final String path;
 
   AppState(this.path);
 }
-
-

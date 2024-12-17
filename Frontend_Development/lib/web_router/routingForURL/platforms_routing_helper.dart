@@ -1,7 +1,3 @@
-
-
-
-
 void configureWebURL_() {
-   throw UnsupportedError('Unsupported Platform');
+  throw UnsupportedError('Unsupported Platform');
 }

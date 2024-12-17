@@ -2,32 +2,33 @@ import 'package:flutter/material.dart';
 import "../widgets/Grid_of_Gridviews/main_grid.dart";
 import "../widgets/navbar.dart";
 
-class Home extends StatelessWidget {
+
+GlobalKey<MainGridState> mainGridKey = GlobalKey();
+      
+class Dashboard extends StatelessWidget {
   final List<String>? gridItemsIndexes;
   final Map<String, List<Map<String, dynamic>>>? gridItems;
 
-  const Home({
+  const Dashboard({
     super.key,
     required this.gridItems,
     required this.gridItemsIndexes,
   });
-
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
+       
+
     return Container(
-      decoration: BoxDecoration(color:Colors.white),
+      decoration: BoxDecoration(color: Colors.white),
       child: SingleChildScrollView(
         //physics: BouncingScrollPhysics(),
         child: SizedBox(
           width: screenWidth,
-          child: MainGrid(
+          child: MainGrid( key:mainGridKey,
               gridItems: gridItems, gridItemsIndexes: gridItemsIndexes),
         ),
       ),
-
-
-      
     );
   }
 }

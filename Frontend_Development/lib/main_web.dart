@@ -3,20 +3,20 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MainWeb extends StatelessWidget {
-   MainWeb({super.key});
+  MainWeb({super.key});
 
   final AppRouter _router = AppRouter();
   final AppRouteInformationParser _routeInformationParser =
       AppRouteInformationParser();
-      
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
-      child:  MaterialApp.router(
+      child: MaterialApp.router(
         routerDelegate: _router,
         routeInformationParser: _routeInformationParser,
-          ),
+      ),
     );
   }
 }

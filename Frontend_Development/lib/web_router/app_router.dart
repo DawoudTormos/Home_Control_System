@@ -1,3 +1,4 @@
+import 'package:edittable_grid_flutter/pages/ai_assistant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../pages/dashboard.dart';
@@ -143,7 +144,9 @@ class AppRouter extends RouterDelegate<AppState>
             child:
                 Dashboard(gridItems: gridItems, gridItemsIndexes: gridItemsIndexes),
             key: const ValueKey('HomePage')),
-        
+         if(_currentState.path == "AIAssitant")
+            MaterialPage(
+              child: AIAssistantPage(), key: const ValueKey('AIAssistantPage')),
         if (!['/', '/page2', '/page3'].contains(_currentState.path))
           const MaterialPage(
               child: NotFoundPage(), key: ValueKey('NotFoundPage')),

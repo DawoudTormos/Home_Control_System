@@ -1,11 +1,14 @@
 import 'package:edittable_grid_flutter/main_mobile.dart';
 import 'package:edittable_grid_flutter/main_web.dart';
+import 'package:edittable_grid_flutter/pages/ai_assistant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'web_router/app_router.dart';
 
 String currentPage = "Dashboard";
 void main() {
+  
+  //requestMicrophonePermission() ;
   configureWebURL(); // to deal with web diffrenetly from other platforms regarding URLS
   runApp(MyApp());
 }

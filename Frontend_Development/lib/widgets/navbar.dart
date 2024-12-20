@@ -1,4 +1,5 @@
 import 'package:edittable_grid_flutter/main.dart';
+import 'package:edittable_grid_flutter/pages/add_device.dart';
 import 'package:edittable_grid_flutter/pages/ai_assistant.dart';
 import 'package:edittable_grid_flutter/pages/dashboard.dart';
 import 'package:edittable_grid_flutter/widgets/Grid_of_Gridviews/main_grid.dart';
@@ -163,7 +164,7 @@ class NavBar extends StatelessWidget {
    screens = [
     Dashboard(gridItems: gridItems, gridItemsIndexes: gridItemsIndexes), // Home
     AIAssistantPage(), // Dashboard
-    Container(), // Device Manager 
+    DeviceLinkNavigator(), // Device Manager 
     Container()
   ];
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "../widgets/Grid_of_Gridviews/main_grid.dart";
-import "../widgets/navbar.dart";
 
 
 GlobalKey<MainGridState> mainGridKey = GlobalKey();
@@ -20,7 +19,7 @@ class Dashboard extends StatelessWidget {
        
 
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
       child: SingleChildScrollView(
         //physics: BouncingScrollPhysics(),
         child: SizedBox(

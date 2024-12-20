@@ -1,8 +1,6 @@
 import 'package:edittable_grid_flutter/main.dart';
 import 'package:edittable_grid_flutter/pages/dashboard.dart';
-import 'package:edittable_grid_flutter/widgets/Grid_of_Gridviews/main_grid.dart';
 import 'package:edittable_grid_flutter/widgets/navbar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MainMobile extends StatefulWidget {
@@ -43,10 +41,10 @@ class _MainMobileState extends State<MainMobile> {
               ),
            if( currentPage == "Dashboard")   ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    maximumSize: Size(5, 100) ,
-                    fixedSize: Size(5, 100) ,
-                    minimumSize : Size(5, 100) ,
-                    padding:EdgeInsets.all(0),
+                    maximumSize: const Size(5, 100) ,
+                    fixedSize: const Size(5, 100) ,
+                    minimumSize : const Size(5, 100) ,
+                    padding:const EdgeInsets.all(0),
                     backgroundColor: Colors.transparent,
                     foregroundColor: Colors.grey[850],
                     elevation: 0,

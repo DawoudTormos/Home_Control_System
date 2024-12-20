@@ -8,6 +8,7 @@ class AIAssistantPage extends StatefulWidget {
   const AIAssistantPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AIAssistantPageState createState() => _AIAssistantPageState();
 }
 
@@ -15,7 +16,7 @@ class _AIAssistantPageState extends State<AIAssistantPage>
     with SingleTickerProviderStateMixin {
   late stt.SpeechToText _speechToText;
   bool _isListening = false;
-  bool _speechEnabled = false;
+  //bool _speechEnabled = false;
   String _transcription = "Say something...";
   late AnimationController _waveController;
 
@@ -33,7 +34,7 @@ class _AIAssistantPageState extends State<AIAssistantPage>
 
 
     void _startInfiniteLoop() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (!mounted) return;  // Check if widget is still in the widget tree
       setState(() {
         _isListening = _speechToText.isListening;
@@ -43,7 +44,7 @@ class _AIAssistantPageState extends State<AIAssistantPage>
 
 
     void _initSpeech() async {
-    _speechEnabled = await _speechToText.initialize(finalTimeout :Duration(seconds: 20));
+    await _speechToText.initialize(finalTimeout :const Duration(seconds: 20));
     setState(() {});
   }
 

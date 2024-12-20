@@ -2,7 +2,6 @@ import 'package:edittable_grid_flutter/main.dart';
 import 'package:edittable_grid_flutter/pages/add_device.dart';
 import 'package:edittable_grid_flutter/pages/ai_assistant.dart';
 import 'package:edittable_grid_flutter/pages/dashboard.dart';
-import 'package:edittable_grid_flutter/widgets/Grid_of_Gridviews/main_grid.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
@@ -108,6 +107,7 @@ final Map<String, List<Map<String, dynamic>>> gridItems2 = {
 final List<String> gridItemsIndexes = ["Kitchen", "Living Room"];
 final List<String> gridItemsIndexes2 = ["Kitchen2", "Living Room2"];
 
+// ignore: must_be_immutable
 class NavBar extends StatelessWidget {
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
@@ -128,7 +128,7 @@ class NavBar extends StatelessWidget {
         activeColorPrimary: Colors.white,
         activeColorSecondary: Colors.black,
         inactiveColorPrimary: Colors.grey[800],
-        inactiveColorSecondary: Colors.blue!,
+        inactiveColorSecondary: Colors.blue,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.dashboard),
@@ -136,7 +136,7 @@ class NavBar extends StatelessWidget {
         activeColorPrimary: Colors.white,
         activeColorSecondary: Colors.black,
         inactiveColorPrimary: Colors.grey[800],
-        inactiveColorSecondary: Colors.blue!,
+        inactiveColorSecondary: Colors.blue,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.devices),
@@ -144,7 +144,7 @@ class NavBar extends StatelessWidget {
         activeColorPrimary: Colors.white,
         activeColorSecondary: Colors.black,
         inactiveColorPrimary: Colors.grey[800],
-        inactiveColorSecondary: Colors.blue!,
+        inactiveColorSecondary: Colors.blue,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.logout),
@@ -152,7 +152,7 @@ class NavBar extends StatelessWidget {
         activeColorPrimary: Colors.white,
         activeColorSecondary: Colors.black,
         inactiveColorPrimary: Colors.grey[800],
-        inactiveColorSecondary: Colors.blue!,
+        inactiveColorSecondary: Colors.blue,
       ),
     ];
   }
@@ -163,8 +163,8 @@ class NavBar extends StatelessWidget {
     if(!kIsWeb){
    screens = [
     Dashboard(gridItems: gridItems, gridItemsIndexes: gridItemsIndexes), // Home
-    AIAssistantPage(), // Dashboard
-    DeviceLinkNavigator(), // Device Manager 
+    const AIAssistantPage(), // Dashboard
+    const DeviceLinkNavigator(), // Device Manager 
     Container()
   ];
 

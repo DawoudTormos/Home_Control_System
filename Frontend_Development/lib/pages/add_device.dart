@@ -2,13 +2,15 @@ import 'package:edittable_grid_flutter/pages/add_devices_sub_pages/components/ic
 import 'package:flutter/material.dart';
 
 class DeviceLinkNavigator extends StatelessWidget {
+  const DeviceLinkNavigator({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Remove the debug flag
-      home: DeviceLinkPage(),
+      home: const DeviceLinkPage(),
       routes: {
-        '/linkDevice': (context) => DeviceLinkPage(),
+        '/linkDevice': (context) => const DeviceLinkPage(),
         // Add more routes as you create other pages
       },
     );
@@ -16,7 +18,10 @@ class DeviceLinkNavigator extends StatelessWidget {
 }
 
 class DeviceLinkPage extends StatefulWidget {
+  const DeviceLinkPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _DeviceLinkPageState createState() => _DeviceLinkPageState();
 }
 
@@ -61,9 +66,9 @@ class _DeviceLinkPageState extends State<DeviceLinkPage> {
         //final double screenWidth = MediaQuery.of(context).size.height;
 
     if (icons.length != iconsNames.length) {
-      print(icons.length);
-      print(iconsNames.length);
-      throw Exception('This is an error message about icons.length ! = iconsNames.length');
+      //print(icons.length);
+      //print(iconsNames.length);
+      throw Exception('This is an error message beacuase icons.length != iconsNames.length');
     }
     int index = -1, resultCount = 0;
     final filteredIcons = icons.where((icon) {
@@ -76,7 +81,7 @@ class _DeviceLinkPageState extends State<DeviceLinkPage> {
           );
     }).toList();
 
-    print(filteredIcons.length);
+    //print(filteredIcons.length);
 
     return Scaffold(
       body: Padding(
@@ -84,7 +89,7 @@ class _DeviceLinkPageState extends State<DeviceLinkPage> {
         child: Center(
           child: SingleChildScrollView(
 
-            child: Container(
+            child: SizedBox(
               height: 1000,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -186,7 +191,7 @@ class _DeviceLinkPageState extends State<DeviceLinkPage> {
                     items: subTypes.map((subType) {
                       return DropdownMenuItem(
                         value: subType,
-                        child: Text(subType ?? "None"),
+                        child: Text(subType),
                       );
                     }).toList(),
                     onChanged: (value) => setState(() => selectedSubType = value),

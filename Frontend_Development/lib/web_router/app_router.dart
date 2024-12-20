@@ -130,7 +130,7 @@ class AppRouter extends RouterDelegate<AppState>
   // ignore: avoid_renaming_method_parameters
   Future<void> setNewRoutePath(AppState state) async {
     _currentState = state;
-    print(_currentState.toString());
+    //print(_currentState.toString());
     notifyListeners();
   }
 
@@ -145,8 +145,8 @@ class AppRouter extends RouterDelegate<AppState>
                 Dashboard(gridItems: gridItems, gridItemsIndexes: gridItemsIndexes),
             key: const ValueKey('HomePage')),
          if(_currentState.path == "AIAssitant")
-            MaterialPage(
-              child: AIAssistantPage(), key: const ValueKey('AIAssistantPage')),
+            const MaterialPage(
+              child: AIAssistantPage(), key: ValueKey('AIAssistantPage')),
         if (!['/', '/page2', '/page3'].contains(_currentState.path))
           const MaterialPage(
               child: NotFoundPage(), key: ValueKey('NotFoundPage')),
@@ -174,6 +174,7 @@ class AppRouteInformationParser extends RouteInformationParser<AppState> {
   Future<AppState> parseRouteInformation(RouteInformation routeInformation) {
     // ignore: deprecated_member_use
     final uri = Uri.parse(
+        // ignore: deprecated_member_use
         routeInformation.location /* ?? '/' //can't be null so commented it*/);
     return SynchronousFuture(AppState(uri.path));
   }

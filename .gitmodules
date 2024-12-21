@@ -1,3 +1,6 @@
 [submodule "Backend"]
 	path = Backend
 	url = https://github.com/DawoudTormos/Home_Control_System_Backend.git
+[submodule "Frontend_Development"]
+	path = Frontend_Development
+	url = https://github.com/DawoudTormos/Home_Control_System_Frontend_Development.git

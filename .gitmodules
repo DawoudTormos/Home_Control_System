@@ -4,3 +4,6 @@
 [submodule "Frontend_Development"]
 	path = Frontend_Development
 	url = https://github.com/DawoudTormos/Home_Control_System_Frontend_Development.git
+[submodule "HCS_Devices_Arduino"]
+	path = HCS_Devices_Arduino
+	url = https://github.com/DawoudTormos/HCS_Devices_Arduino

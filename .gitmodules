@@ -7,3 +7,6 @@
 [submodule "HCS_Devices_Arduino"]
 	path = HCS_Devices_Arduino
 	url = https://github.com/DawoudTormos/HCS_Devices_Arduino
+[submodule "HCS_Devices_PlatformIO"]
+	path = HCS_Devices_Arduino
+	url = https://github.com/DawoudTormos/HCS_Devices_PlatformIO

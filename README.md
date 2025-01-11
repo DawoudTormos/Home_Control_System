@@ -6,7 +6,10 @@ A user would buy the devices he needs, make an account adn login, configure his 
 
 I will add more details here later on how to setup and run the project. This project has 2 submodules for backend and frontend.
 
-Code for the devices are on seperate repos:
+Documentation:
+https://github.com/DawoudTormos/Home_Control_System/blob/main/Documentation.docx
+
+Code for the devices are on seperate repos (Found as submodules up):
 
   -  https://github.com/DawoudTormos/HCS_Devices_PlatformIO
   -  https://github.com/DawoudTormos/HCS_Devices_Arduino

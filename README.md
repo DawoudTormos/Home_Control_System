@@ -17,10 +17,10 @@ Code for the devices are on seperate repos (Found as submodules up):
 
 ERD:
 
-https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tormos_12134651_ISD_ERD_HCS%20(2).png
+![ERD_DIAGRAM](https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tormos_12134651_ISD_ERD_HCS%20(2).png)
 
 
 Use_Case_Diagram:
 
-https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tromso_12134651_ISD_Use_Case_Diagram.jpg
+![USE_CASE_DIAGRAM](https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tromso_12134651_ISD_Use_Case_Diagram.jpg)
 

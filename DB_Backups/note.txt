@@ -1,0 +1,24 @@
+# PostgreSQL Backup and Restore Notes
+
+## Backup
+
+To create a backup of a PostgreSQL database, you can use the `pg_dump` utility. Here is an example command:
+
+
+## Restore
+
+To restore a PostgreSQL database from a backup, you can use the `psql` utility. Here is an example command:
+psql -U username -d database_name -f backup_file.sql
+
+###
+You can also restore in pgAdmin 4 which is a db managment tool. (Like phpmyadmin with mysql) 
+In pgAdmin 4:
+
+    - make a databse named HCS
+    - right click on public scheme
+    - click restore
+    - continue by restoring one of the backups (.backup)
+
+For .sql:
+    - make a databse named HCS
+    - run the .sql file as query

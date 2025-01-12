@@ -13,3 +13,14 @@ Code for the devices are on seperate repos (Found as submodules up):
 
   -  https://github.com/DawoudTormos/HCS_Devices_PlatformIO
   -  https://github.com/DawoudTormos/HCS_Devices_Arduino
+
+
+ERD:
+
+https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tormos_12134651_ISD_ERD_HCS%20(2).png
+
+
+Use_Case_Diagram:
+
+https://github.com/DawoudTormos/Home_Control_System/blob/main/DB_Backups/Diagrams/Dawoud_Tromso_12134651_ISD_Use_Case_Diagram.jpg
+
